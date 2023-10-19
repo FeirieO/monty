@@ -8,13 +8,13 @@ i#include "monty.h"
  */
 void f_pal(stack_t **head, unsigned int counter)
 {
-    stack_t *current;
-    (void)counter;
-
-    current = *head;
-    while (current)
-    {
-        printf("%d\n", current->n);
-        current = current->next;
-    }
+	stack_t *current;
+	(void)counter;
+	
+	current = *head;
+	while(current)
+	{
+		printf("%d\n", current->n);
+		current = current->next;
+    	}
 }
