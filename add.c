@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * f2_add - Adds the top two elements of the stack.
+ * f_add - Adds the top two elements of the stack.
  * @head: Pointer to the stack head
  * @counter: Line number
  * Return: No return
  */
-void f2_add(stack_t **head, unsigned int counter)
+void f_add(stack_t **head, unsigned int counter)
 {
 	if (*head == NULL || (*head)->next == NULL)
 	{

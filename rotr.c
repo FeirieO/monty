@@ -13,7 +13,7 @@ void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter)
 		return;
 	}
 	stack_t *copy = *head;
-	
+
 	while (copy->next)
 	{
 		copy = copy->next;

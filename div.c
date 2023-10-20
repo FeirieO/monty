@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * f2_div - Divides the top two elements of the stack.
+ * f_div - Divides the top two elements of the stack.
  * @head: stack head
  * @counter: line number
  * Return: no return
  */
-void f2_div(stack_t **head, unsigned int counter)
+void f_div(stack_t **head, unsigned int counter)
 {
 	if (*head == NULL || (*head)->next == NULL)
 	{

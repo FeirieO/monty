@@ -8,23 +8,22 @@
  */
 void f_rotl(stack_t **head, __attribute__((unused)) unsigned int counter)
 {
-    if (*head == NULL || (*head)->next == NULL)
-    {
-        return;
-    }
+	if (*head == NULL || (*head)->next == NULL)
+	{
+		return;
+	}
 
-    stack_t *tmp = *head;
-    stack_t *aux = (*head)->next;
+	stack_t *tmp = *head;
+	stack_t *aux = (*head)->next;
 
-    aux->prev = NULL;
+	aux->prev = NULL;
 
-    while (tmp->next != NULL)
-    {
-        tmp = tmp->next;
-    }
-
-    tmp->next = *head;
-    (*head)->next = NULL;
-    (*head)->prev = tmp;
-    (*head) = aux;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = *head;
+	(*head)->next = NULL;
+	(*head)->prev = tmp;
+	(*head) = aux;
 }

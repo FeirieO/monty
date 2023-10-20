@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * execute - Executes the opcode.
- * @content: Line content
- * @stack: Pointer to the stack
- * @counter: Line counter
- * @file: Pointer to monty file
+ * exec - executes the opcode.
+ * @content: line content
+ * @stack: pointer to the stack
+ * @counter: line counter
+ * @file: pointer to monty file
  * Return: 0 on success, 1 on failure
  */
 int exec(char *content, stack_t **stack, unsigned int counter, FILE *file)
@@ -20,18 +20,17 @@ int exec(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	};
 	unsigned int i = 0;
 	char *op;
-	
+
 	op = strtok(content, " \n\t");
-	
 	if (op && op[0] == '#')
-		return 0;  // Comment line
+		return (0);
 	bus.arg = strtok(NULL, " \n\t");
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
 		{
 			opst[i].f(stack, counter);
-			return 0;  // Success
+			return (0);
 		}
 		i++;
 	}
@@ -43,5 +42,5 @@ int exec(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	return 1;  // Failure
+	return (1);
 }
