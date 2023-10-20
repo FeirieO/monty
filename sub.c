@@ -1,14 +1,19 @@
 #include "monty.h"
-
 /**
- * f_sub - Subtracts the top element from the second element on the stack.
- * @head: Stack head
- * @counter: Line number
- * Return: No return
+  *f_sub- sustration
+  *@head: stack head
+  *@counter: line_number
+  *Return: no return
  */
 void f_sub(stack_t **head, unsigned int counter)
 {
-	if (*head == NULL || (*head)->next == NULL)
+	stack_t *aux;
+	int sus, nodes;
+
+	aux = *head;
+	for (nodes = 0; aux != NULL; nodes++)
+		aux = aux->next;
+	if (nodes < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
 		fclose(bus.file);
@@ -16,7 +21,9 @@ void f_sub(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	int result = (*head)->next->n - (*head)->n;
-	(*head)->next->n = result;
-	pop(head);
+	aux = *head;
+	sus = aux->next->n - aux->n;
+	aux->next->n = sus;
+	*head = aux->next;
+	free(aux);
 }
